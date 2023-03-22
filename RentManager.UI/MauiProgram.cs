@@ -9,8 +9,7 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder()
 			.UseMauiApp<App>()
             .UseMauiCommunityToolkit()
-            .AddServices()
-            .ConfigureFontsServices();
+            .AddServices();
 		return builder.Build();
 	}
 }
