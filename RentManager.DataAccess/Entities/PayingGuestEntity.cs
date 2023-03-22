@@ -14,6 +14,6 @@ public class PayingGuestEntity  : RealmObject
     public string? GuestVerifyDocType { get; set; }
     public string? GuestVerifyDoc { get; set; }
 
-    public DateTime? Created { get; set; }
-    public DateTime? Updated { get; set; }
+    public DateTimeOffset? Created { get; set; }
+    public DateTimeOffset? Updated { get; set; }
 }

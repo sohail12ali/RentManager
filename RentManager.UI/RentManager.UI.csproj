@@ -59,6 +59,15 @@
 		<ProjectReference Include="..\RentManager.DataAccess\RentManager.DataAccess.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="Views\AddGuestPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ViewGuestPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 	<PropertyGroup Label="MauiAppAccelerator">
 		<wizardVersion>v1.2.3</wizardVersion>
 		<projectType>MVVMToolkit</projectType>

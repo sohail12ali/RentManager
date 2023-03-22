@@ -5,10 +5,20 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:RentManager.UI"
     xmlns:views="clr-namespace:RentManager.UI.Views">
-    <ShellContent
-        Title="Main"
-        ContentTemplate="{DataTemplate views:MainPage}"
-        Route="MainPage"
-        Shell.NavBarIsVisible="False" />
 
+    <FlyoutItem>
+        <Tab Title="Menu" Icon="home.svg">
+
+            <ShellContent
+                Title="View Guest"
+                ContentTemplate="{DataTemplate views:ViewGuestPage}"
+                Icon="view.svg"
+                Route="ViewGuest" />
+            <ShellContent
+                Title="Add Guest"
+                ContentTemplate="{DataTemplate views:AddGuestPage}"
+                Icon="add.svg"
+                Route="AddGuest" />
+        </Tab>
+    </FlyoutItem>
 </Shell>

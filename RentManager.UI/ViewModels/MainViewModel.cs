@@ -2,4 +2,8 @@
 
 public partial class MainViewModel : BaseViewModel
 {
+    public MainViewModel()
+    {
+        Title = "Home Page";
+    }
 }

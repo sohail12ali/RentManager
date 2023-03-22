@@ -26,12 +26,16 @@ internal static class ServiceExtension
     private static MauiAppBuilder AddPages(this MauiAppBuilder builder)
     {
         builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddTransient<AddGuestPage>();
+        builder.Services.AddTransient<ViewGuestPage>();
         return builder;
     }
 
     private static MauiAppBuilder AddViewModels(this MauiAppBuilder builder)
     {
         builder.Services.AddSingleton<MainViewModel>();
+        builder.Services.AddTransient<AddGuestViewModel>();
+        builder.Services.AddTransient<ViewGuestViewModel>();
         return builder;
     }
 
@@ -46,7 +50,7 @@ internal static class ServiceExtension
 
         IMapper mapper = mapperConfig.CreateMapper();
 
-        builder.Services.AddSingleton<IMapper>(mapper);
+        builder.Services.AddSingleton(mapper);
         return builder;
     }
 
