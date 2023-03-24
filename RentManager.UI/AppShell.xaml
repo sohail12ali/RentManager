@@ -4,11 +4,11 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:RentManager.UI"
-    xmlns:views="clr-namespace:RentManager.UI.Views">
+    xmlns:views="clr-namespace:RentManager.UI.Views"
+    Shell.FlyoutItemIsVisible="False">
 
     <FlyoutItem>
         <Tab Title="Menu" Icon="home.svg">
-
             <ShellContent
                 Title="View Guest"
                 ContentTemplate="{DataTemplate views:ViewGuestPage}"
@@ -20,5 +20,16 @@
                 Icon="add.svg"
                 Route="AddGuest" />
         </Tab>
+
+        <ShellContent
+            Title="View Guest"
+            ContentTemplate="{DataTemplate views:ViewGuestPage}"
+            Icon="view.svg"
+            Route="ViewGuest" />
+        <ShellContent
+            Title="Add Guest"
+            ContentTemplate="{DataTemplate views:AddGuestPage}"
+            Icon="add.svg"
+            Route="AddGuest" />
     </FlyoutItem>
 </Shell>

@@ -26,6 +26,32 @@ public partial class BaseViewModel : ObservableObject
     {
     }
 
+    [RelayCommand]
+    public virtual void Appearing()
+    {
+        try
+        {
+            // DoSomething
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.ToString());
+        }
+    }
+
+    [RelayCommand]
+    public virtual void Disappearing()
+    {
+        try
+        {
+            // DoSomething
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.ToString());
+        }
+    }
+
     protected async Task ShowToast(string text, ToastDuration duration = ToastDuration.Short, double fontSize = 14, CancellationTokenSource? cancellationTokenSource = null)
     {
         Debug.WriteLine($"Toast Message Posted: {text}");

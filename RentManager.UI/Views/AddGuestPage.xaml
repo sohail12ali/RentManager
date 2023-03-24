@@ -4,26 +4,64 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:resx="clr-namespace:RentManager.Common.Constants;assembly=RentManager.Common"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:vm="clr-namespace:RentManager.UI.ViewModels"
     Title="{Binding Title}"
     x:DataType="vm:AddGuestViewModel">
-    <VerticalStackLayout>
-        <Frame Style="{DynamicResource ActivityIndicatorFrameStyle}">
-            <ActivityIndicator
-                IsRunning="{Binding IsBusy}"
-                IsVisible="{Binding IsBusy}"
-                Style="{DynamicResource Key=ActivityIndicatorStyle}" />
-        </Frame>
-        <Frame>
-            <VerticalStackLayout>
-                <Entry Placeholder="{x:Static resx:AppResource.PHGuestName}" Text="{Binding GuestName}" />
-                <Entry Placeholder="{x:Static resx:AppResource.PHGuestPhone}" Text="{Binding GuestPhone}" />
-                <Entry Placeholder="{x:Static resx:AppResource.PHGuestEmail}" Text="{Binding GuestEmail}" />
-                <Entry Placeholder="{x:Static resx:AppResource.PHGuestAddress}" Text="{Binding GuestAddress}" />
-                <Entry Placeholder="{x:Static resx:AppResource.PHGuestDocType}" Text="{Binding GuestVerifyDocType}" />
-                <Entry Placeholder="{x:Static resx:AppResource.PHGuestDoc}" Text="{Binding GuestVerifyDoc}" />
-            </VerticalStackLayout>
-        </Frame>
-        <Button Command="{Binding AddGuestCommand}" Text="{x:Static resx:AppResource.BTSave}" />
-    </VerticalStackLayout>
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding AppearingCommand}" EventName="Appearing" />
+        <toolkit:EventToCommandBehavior Command="{Binding DisappearingCommand}" EventName="Disappearing" />
+    </ContentPage.Behaviors>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="SubmitButtonStyle" TargetType="Button">
+                <Setter Property="Margin" Value="10" />
+            </Style>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="Margin" Value="10,5" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Frame IsVisible="{Binding IsBusy}" Style="{DynamicResource ActivityIndicatorFrameStyle}">
+                <ActivityIndicator
+                    IsRunning="{Binding IsBusy}"
+                    IsVisible="{Binding IsBusy}"
+                    Style="{DynamicResource Key=ActivityIndicatorStyle}" />
+            </Frame>
+            <Frame>
+                <VerticalStackLayout>
+                    <Entry
+                        Placeholder="{x:Static resx:AppResource.PHGuestName}"
+                        Style="{DynamicResource EntryStyle}"
+                        Text="{Binding GuestName}" />
+                    <Entry
+                        Placeholder="{x:Static resx:AppResource.PHGuestPhone}"
+                        Style="{DynamicResource EntryStyle}"
+                        Text="{Binding GuestPhone}" />
+                    <Entry
+                        Placeholder="{x:Static resx:AppResource.PHGuestEmail}"
+                        Style="{DynamicResource EntryStyle}"
+                        Text="{Binding GuestEmail}" />
+                    <Entry
+                        Placeholder="{x:Static resx:AppResource.PHGuestAddress}"
+                        Style="{DynamicResource EntryStyle}"
+                        Text="{Binding GuestAddress}" />
+                    <Entry
+                        Placeholder="{x:Static resx:AppResource.PHGuestDocType}"
+                        Style="{DynamicResource EntryStyle}"
+                        Text="{Binding GuestVerifyDocType}" />
+                    <Entry
+                        Placeholder="{x:Static resx:AppResource.PHGuestDoc}"
+                        Style="{DynamicResource EntryStyle}"
+                        Text="{Binding GuestVerifyDoc}" />
+                </VerticalStackLayout>
+            </Frame>
+            <Button
+                Command="{Binding AddGuestCommand}"
+                Style="{DynamicResource SubmitButtonStyle}"
+                Text="{x:Static resx:AppResource.BTSave}" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

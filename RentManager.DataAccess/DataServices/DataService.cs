@@ -8,6 +8,7 @@ using RentManager.Common.Models;
 using RentManager.DataAccess.Entities;
 
 using System.Diagnostics;
+using System.Linq;
 
 namespace RentManager.DataAccess.DataServices;
 
@@ -30,6 +31,8 @@ public class DataService : IDataService
             var guestEntity = mapper.Map<PayingGuestEntity>(guest);
             Guard.IsNotNull(guestEntity);
 
+            int max = realm.All<PayingGuestEntity>()?.OrderByDescending(x => x.GuestId)?.FirstOrDefault()?.GuestId ?? 0;
+            guestEntity.GuestId = max + 1;
             await realm.WriteAsync(() =>
             {
                 realm.Add(guestEntity);
@@ -58,4 +61,5 @@ public class DataService : IDataService
             throw;
         }
     }
+
 }
