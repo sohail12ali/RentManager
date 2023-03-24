@@ -1,4 +1,5 @@
 ﻿namespace RentManager.Common.Enums;
+
 public enum Month
 {
     None = 0,

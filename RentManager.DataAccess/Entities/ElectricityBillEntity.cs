@@ -1,13 +1,12 @@
 ﻿using Realms;
 
-using RentManager.Common.Enums;
-
 namespace RentManager.DataAccess.Entities;
 
 public class ElectricityBillEntity : RealmObject
 {
     [PrimaryKey]
     public int BillId { get; set; }
+
     public int GuestId { get; set; }
     public float BillAmount { get; set; }
     public int BillForMonth { get; set; }

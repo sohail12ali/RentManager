@@ -5,7 +5,7 @@ using RentManager.DataAccess.Entities;
 
 namespace RentManager.DataAccess.Mapper.Profiles;
 
-public class PayingGuestProfile  : Profile
+public class PayingGuestProfile : Profile
 {
     public PayingGuestProfile()
     {

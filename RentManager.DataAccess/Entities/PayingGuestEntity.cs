@@ -2,10 +2,11 @@
 
 namespace RentManager.DataAccess.Entities;
 
-public class PayingGuestEntity  : RealmObject
+public class PayingGuestEntity : RealmObject
 {
     [PrimaryKey]
     public int GuestId { get; set; }
+
     public string GuestName { get; set; }
     public string? GuestEmail { get; set; }
     public string GuestPhone { get; set; }

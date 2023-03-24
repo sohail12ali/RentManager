@@ -11,7 +11,9 @@ public static class MauiProgram
             .UseMauiApp<App>()
             .UseMauiCommunityToolkit()
             .AddServices();
-        return builder.Build();
+        var app = builder.Build();
+
+        return app;
     }
 
     private static void UnhandledException(object sender, UnhandledExceptionEventArgs e)

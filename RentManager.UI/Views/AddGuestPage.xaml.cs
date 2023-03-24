@@ -2,9 +2,9 @@ namespace RentManager.UI.Views;
 
 public partial class AddGuestPage : ContentPage
 {
-	public AddGuestPage(AddGuestViewModel viewModel)
-	{
-		InitializeComponent();
+    public AddGuestPage(AddGuestViewModel viewModel)
+    {
+        InitializeComponent();
         BindingContext = viewModel;
     }
 }

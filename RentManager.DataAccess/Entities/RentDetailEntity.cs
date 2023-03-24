@@ -1,13 +1,12 @@
 ﻿using Realms;
 
-using RentManager.Common.Enums;
-
 namespace RentManager.DataAccess.Entities;
 
 public class RentDetailEntity : RealmObject
 {
     [PrimaryKey]
     public int RentId { get; set; }
+
     public int GuestId { get; set; }
     public int BillId { get; set; }
     public float RentAmount { get; set; }
