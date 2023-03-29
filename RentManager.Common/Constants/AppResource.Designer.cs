@@ -61,20 +61,38 @@ namespace RentManager.Common.Constants {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Guest.
-        /// </summary>
-        public static string AddGuestPageTitle {
-            get {
-                return ResourceManager.GetString("AddGuestPageTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         public static string BTSave {
             get {
                 return ResourceManager.GetString("BTSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Electric Bill.
+        /// </summary>
+        public static string FTElectricBillSection {
+            get {
+                return ResourceManager.GetString("FTElectricBillSection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guests.
+        /// </summary>
+        public static string FTGuestSection {
+            get {
+                return ResourceManager.GetString("FTGuestSection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rent.
+        /// </summary>
+        public static string FTRentSection {
+            get {
+                return ResourceManager.GetString("FTRentSection", resourceCulture);
             }
         }
         
@@ -133,6 +151,33 @@ namespace RentManager.Common.Constants {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Bill.
+        /// </summary>
+        public static string PTAddBill {
+            get {
+                return ResourceManager.GetString("PTAddBill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Guest.
+        /// </summary>
+        public static string PTAddGuest {
+            get {
+                return ResourceManager.GetString("PTAddGuest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Guests.
+        /// </summary>
+        public static string PTViewGuest {
+            get {
+                return ResourceManager.GetString("PTViewGuest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to save the guest..
         /// </summary>
         public static string TMGuestSavedFailed {
@@ -147,15 +192,6 @@ namespace RentManager.Common.Constants {
         public static string TMGuestSavedPassed {
             get {
                 return ResourceManager.GetString("TMGuestSavedPassed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to View Guests.
-        /// </summary>
-        public static string ViewGuestPageTitle {
-            get {
-                return ResourceManager.GetString("ViewGuestPageTitle", resourceCulture);
             }
         }
     }

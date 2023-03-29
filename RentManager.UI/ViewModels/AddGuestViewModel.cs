@@ -1,5 +1,4 @@
-﻿using RentManager.Common.Constants;
-using RentManager.Common.Models;
+﻿using RentManager.Common.Models;
 using RentManager.DataAccess.DataServices;
 
 namespace RentManager.UI.ViewModels;
@@ -35,7 +34,7 @@ public partial class AddGuestViewModel : BaseViewModel
     public AddGuestViewModel(IDataService data)
     {
         Debug.WriteLine($"Init Class: {GetType().Name}, Method: {System.Reflection.MethodBase.GetCurrentMethod().Name}");
-        Title = AppResource.AddGuestPageTitle;
+        Title = AppResource.PTAddGuest;
         this.data = data;
     }
 

@@ -1,5 +1,4 @@
-﻿using RentManager.Common.Constants;
-using RentManager.Common.Models;
+﻿using RentManager.Common.Models;
 using RentManager.DataAccess.DataServices;
 
 using System.Collections.ObjectModel;
@@ -9,6 +8,7 @@ namespace RentManager.UI.ViewModels;
 public partial class ViewGuestViewModel : BaseViewModel
 {
     private readonly IDataService dataService;
+
     [ObservableProperty]
     private ObservableCollection<PayingGuest> payingGuests = new();
 
@@ -18,7 +18,7 @@ public partial class ViewGuestViewModel : BaseViewModel
     public ViewGuestViewModel(IDataService dataService)
     {
         Debug.WriteLine($"Init Class: {GetType().Name}, Method: {System.Reflection.MethodBase.GetCurrentMethod().Name}");
-        Title = AppResource.ViewGuestPageTitle;
+        Title = AppResource.PTViewGuest;
         this.dataService = dataService;
     }
 

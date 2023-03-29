@@ -117,37 +117,64 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddGuestPageTitle" xml:space="preserve">
-    <value>Add Guest</value>
-  </data>
   <data name="BTSave" xml:space="preserve">
     <value>Save</value>
+    <comment>Save Button Text</comment>
+  </data>
+  <data name="FTElectricBillSection" xml:space="preserve">
+    <value>Electric Bill</value>
+    <comment>Flyout Menu Section Title</comment>
+  </data>
+  <data name="FTGuestSection" xml:space="preserve">
+    <value>Guests</value>
+    <comment>Flyout Menu Section Title</comment>
+  </data>
+  <data name="FTRentSection" xml:space="preserve">
+    <value>Rent</value>
+    <comment>Flyout Menu Section Title</comment>
   </data>
   <data name="PHGuestAddress" xml:space="preserve">
     <value>Enter Address</value>
+    <comment>Guest Address Place Holder</comment>
   </data>
   <data name="PHGuestDoc" xml:space="preserve">
     <value>Enter Document ID</value>
+    <comment>Guest Document Place Holder</comment>
   </data>
   <data name="PHGuestDocType" xml:space="preserve">
     <value>Enter Document Type</value>
+    <comment>Guest Document Type Place Holder</comment>
   </data>
   <data name="PHGuestEmail" xml:space="preserve">
     <value>Enter Email</value>
+    <comment>Guest Email Place Holder</comment>
   </data>
   <data name="PHGuestName" xml:space="preserve">
     <value>Enter Name</value>
+    <comment>Guest Name Place Holder</comment>
   </data>
   <data name="PHGuestPhone" xml:space="preserve">
     <value>Enter Phone</value>
+    <comment>Guest Phone Number Place Holder</comment>
+  </data>
+  <data name="PTAddBill" xml:space="preserve">
+    <value>Add Bill</value>
+    <comment>Add Bill Page Title</comment>
+  </data>
+  <data name="PTAddGuest" xml:space="preserve">
+    <value>Add Guest</value>
+    <comment>Add Guest Page Title</comment>
+  </data>
+  <data name="PTViewGuest" xml:space="preserve">
+    <value>View Guests</value>
+    <comment>View Guest Page Title</comment>
   </data>
   <data name="TMGuestSavedFailed" xml:space="preserve">
     <value>Unable to save the guest.</value>
+    <comment>Error Toast Message of Guest save</comment>
   </data>
   <data name="TMGuestSavedPassed" xml:space="preserve">
     <value>Guest saved successfully.</value>
-  </data>
-  <data name="ViewGuestPageTitle" xml:space="preserve">
-    <value>View Guests</value>
+    <comment>Success Toast Message of Guest save</comment>
   </data>
 </root>

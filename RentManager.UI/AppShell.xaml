@@ -5,10 +5,17 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:RentManager.UI"
     xmlns:views="clr-namespace:RentManager.UI.Views"
-    Shell.FlyoutItemIsVisible="False">
+    xmlns:vm="clr-namespace:RentManager.UI.ViewModels"
+    x:DataType="vm:AppShellViewModel"
+    FlyoutBackgroundColor="Black"
+    FlyoutBehavior="Flyout"
+    FlyoutHeaderBehavior="CollapseOnScroll">
+    <Shell.Resources>
+        <ResourceDictionary />
+    </Shell.Resources>
 
-    <FlyoutItem>
-        <Tab Title="Menu" Icon="home.svg">
+    <FlyoutItem Title="{Binding GuestSectionTitle}">
+        <Tab Title="{Binding GuestSectionTitle}" Icon="home.svg">
             <ShellContent
                 Title="View Guest"
                 ContentTemplate="{DataTemplate views:ViewGuestPage}"
@@ -20,16 +27,15 @@
                 Icon="add.svg"
                 Route="AddGuest" />
         </Tab>
+    </FlyoutItem>
 
-        <ShellContent
-            Title="View Guest"
-            ContentTemplate="{DataTemplate views:ViewGuestPage}"
-            Icon="view.svg"
-            Route="ViewGuest" />
-        <ShellContent
-            Title="Add Guest"
-            ContentTemplate="{DataTemplate views:AddGuestPage}"
-            Icon="add.svg"
-            Route="AddGuest" />
+    <FlyoutItem Title="{Binding ElectricBillSectionTitle}">
+        <Tab Title="{Binding ElectricBillSectionTitle}" Icon="home.svg">
+            <ShellContent
+                Title="Add Electric Bill"
+                ContentTemplate="{DataTemplate views:AddBillPage}"
+                Icon="add.svg"
+                Route="AddElectricBill" />
+        </Tab>
     </FlyoutItem>
 </Shell>

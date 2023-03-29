@@ -37,6 +37,7 @@ internal static class ServiceExtension
 
     private static MauiAppBuilder AddPages(this MauiAppBuilder builder)
     {
+        _ = builder.Services.AddSingleton<AppShell>();
         _ = builder.Services.AddSingleton<MainPage>();
         _ = builder.Services.AddTransient<AddGuestPage>();
         _ = builder.Services.AddTransient<ViewGuestPage>();
@@ -45,6 +46,7 @@ internal static class ServiceExtension
 
     private static MauiAppBuilder AddViewModels(this MauiAppBuilder builder)
     {
+        _ = builder.Services.AddSingleton<AppShellViewModel>();
         _ = builder.Services.AddSingleton<MainViewModel>();
         _ = builder.Services.AddTransient<AddGuestViewModel>();
         _ = builder.Services.AddTransient<ViewGuestViewModel>();
