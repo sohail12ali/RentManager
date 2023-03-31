@@ -1,6 +1,4 @@
-﻿using RentManager.Common.Enums;
-
-namespace RentManager.Common.Models;
+﻿namespace RentManager.Common.Models;
 
 public class RentDetail
 {

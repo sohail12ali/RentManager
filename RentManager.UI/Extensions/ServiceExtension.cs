@@ -29,9 +29,9 @@ internal static class ServiceExtension
     private static MauiAppBuilder AddLoggingServices(this MauiAppBuilder builder)
     {
         _ = builder.Services.AddLogging(configure =>
-         {
-             configure.AddDebug();
-         });
+        {
+            configure.AddDebug();
+        });
         return builder;
     }
 
@@ -41,6 +41,7 @@ internal static class ServiceExtension
         _ = builder.Services.AddSingleton<MainPage>();
         _ = builder.Services.AddTransient<AddGuestPage>();
         _ = builder.Services.AddTransient<ViewGuestPage>();
+        _ = builder.Services.AddTransient<AddBillPage>();
         return builder;
     }
 
@@ -50,6 +51,7 @@ internal static class ServiceExtension
         _ = builder.Services.AddSingleton<MainViewModel>();
         _ = builder.Services.AddTransient<AddGuestViewModel>();
         _ = builder.Services.AddTransient<ViewGuestViewModel>();
+        _ = builder.Services.AddTransient<AddBillViewModel>();
         return builder;
     }
 
@@ -71,13 +73,13 @@ internal static class ServiceExtension
     private static MauiAppBuilder ConfigureFontsServices(this MauiAppBuilder builder)
     {
         _ = builder.ConfigureFonts(fonts =>
-         {
-             _ = fonts.AddFont("FontAwesome6FreeBrands.otf", "FontAwesomeBrands");
-             _ = fonts.AddFont("FontAwesome6FreeRegular.otf", "FontAwesomeRegular");
-             _ = fonts.AddFont("FontAwesome6FreeSolid.otf", "FontAwesomeSolid");
-             _ = fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-             _ = fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-         });
+        {
+            _ = fonts.AddFont("FontAwesome6FreeBrands.otf", "FontAwesomeBrands");
+            _ = fonts.AddFont("FontAwesome6FreeRegular.otf", "FontAwesomeRegular");
+            _ = fonts.AddFont("FontAwesome6FreeSolid.otf", "FontAwesomeSolid");
+            _ = fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+            _ = fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+        });
         return builder;
     }
 }

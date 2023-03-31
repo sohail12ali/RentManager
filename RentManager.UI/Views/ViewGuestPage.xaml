@@ -125,7 +125,6 @@
                                         Grid.Column="1"
                                         Style="{DynamicResource LabelStyle}"
                                         Text="{Binding GuestVerifyDoc}" />
-
                                 </Grid>
                             </Frame>
                         </DataTemplate>

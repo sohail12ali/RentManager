@@ -14,7 +14,7 @@
         <ResourceDictionary />
     </Shell.Resources>
 
-    <FlyoutItem Title="{Binding GuestSectionTitle}">
+    <FlyoutItem Title="{Binding GuestSectionTitle}" Icon="home.svg">
         <Tab Title="{Binding GuestSectionTitle}" Icon="home.svg">
             <ShellContent
                 Title="View Guest"
@@ -29,8 +29,8 @@
         </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Title="{Binding ElectricBillSectionTitle}">
-        <Tab Title="{Binding ElectricBillSectionTitle}" Icon="home.svg">
+    <FlyoutItem Title="{Binding ElectricBillSectionTitle}" Icon="home.svg}">
+        <Tab Title="{Binding ElectricBillSectionTitle}" Icon="home.svg}">
             <ShellContent
                 Title="Add Electric Bill"
                 ContentTemplate="{DataTemplate views:AddBillPage}"

@@ -3,6 +3,7 @@
     x:Class="RentManager.UI.Views.AddBillPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:RentManager.Common.Models;assembly=RentManager.Common"
     xmlns:resx="clr-namespace:RentManager.Common.Constants;assembly=RentManager.Common"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:vm="clr-namespace:RentManager.UI.ViewModels"
@@ -20,6 +21,22 @@
             <Style x:Key="EntryStyle" TargetType="Entry">
                 <Setter Property="Margin" Value="10,5" />
             </Style>
+
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="Margin" Value="10,5" />
+            </Style>
+
+            <Style x:Key="PickerStyle" TargetType="Picker">
+                <Setter Property="Margin" Value="10" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+
+            <Style x:Key="DatePickerStyle" TargetType="DatePicker">
+                <Setter Property="Margin" Value="10" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+
+            <toolkit:DateTimeOffsetConverter x:Key="DateTimeOffsetConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ScrollView>
@@ -30,10 +47,34 @@
                     IsVisible="{Binding IsBusy}"
                     Style="{DynamicResource Key=ActivityIndicatorStyle}" />
             </Frame>
-            <Label
-                HorizontalOptions="Center"
-                Text="Welcome to .NET MAUI!"
-                VerticalOptions="Center" />
+            <Frame>
+                <VerticalStackLayout>
+
+                    <Label Style="{DynamicResource LabelStyle}" Text="{x:Static resx:AppResource.LTSelectGuest}" />
+                    <Picker
+                        ItemDisplayBinding="{Binding GuestName}"
+                        ItemsSource="{Binding PayingGuests}"
+                        SelectedItem="{Binding SelectedGuest, Mode=TwoWay}"
+                        Style="{DynamicResource PickerStyle}" />
+
+                    <Label Style="{DynamicResource LabelStyle}" Text="{x:Static resx:AppResource.LTSelectMonth}" />
+                    <Picker
+                        ItemDisplayBinding="{Binding .}"
+                        ItemsSource="{Binding Months}"
+                        SelectedItem="{Binding SelectedMonth, Mode=TwoWay}"
+                        Style="{DynamicResource PickerStyle}" />
+
+                    <Label Style="{DynamicResource LabelStyle}" Text="{x:Static resx:AppResource.LTSelectStartMonth}" />
+                    <DatePicker Date="{Binding BillStartDate.Date, Mode=TwoWay}" Style="{DynamicResource DatePickerStyle}" />
+
+                    <Label Style="{DynamicResource LabelStyle}" Text="{x:Static resx:AppResource.LTSelectStopMonth}" />
+                    <DatePicker Date="{Binding BillEndDate.Date, Mode=TwoWay}" Style="{DynamicResource DatePickerStyle}" />
+                </VerticalStackLayout>
+            </Frame>
+            <Button
+                Command="{Binding AddElectricBillCommand}"
+                Style="{DynamicResource SubmitButtonStyle}"
+                Text="{x:Static resx:AppResource.BTSave}" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

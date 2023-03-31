@@ -3,12 +3,14 @@
 using CommunityToolkit.Diagnostics;
 
 using Realms;
+using Realms.Exceptions;
 
+using RentManager.Common.Constants;
+using RentManager.Common.Helpers;
 using RentManager.Common.Models;
 using RentManager.DataAccess.Entities;
 
 using System.Diagnostics;
-using System.Linq;
 
 namespace RentManager.DataAccess.DataServices;
 
@@ -17,10 +19,54 @@ public class DataService : IDataService
     private readonly IMapper mapper;
     private readonly Realm realm;
 
+    private readonly RealmConfiguration realmConfig;
+
     public DataService(IMapper mapper)
     {
         this.mapper = mapper;
-        realm = Realm.GetInstance();
+        try
+        {
+            realmConfig = new()
+            {
+                SchemaVersion = AppConstants.RealmDatabase.CurrentVersion,
+                ShouldDeleteIfMigrationNeeded = false,
+            };
+
+            realm = Realm.GetInstance(realmConfig);
+        }
+        catch (RealmMigrationNeededException ex)
+        {
+            Debug.WriteLine(ex);
+#if DEBUG
+            Realm.DeleteRealm(realmConfig);
+            realm = Realm.GetInstance(realmConfig);
+#endif
+        }
+        catch (RealmException ex)
+        {
+            Debug.WriteLine(ex);
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex);
+        }
+    }
+
+    private byte[] GetEncryptionKey()
+    {
+        string key = SecureStorage.Default.GetAsync(AppConstants.RealmDatabase.EnKey).Result;
+        if (string.IsNullOrEmpty(key))
+        {
+            var bytes = EncryptionHelper.GetEncryptionKey();
+            key = EncryptionHelper.ConvertByteArrayToBase64String(bytes);
+            SecureStorage.Default.SetAsync(AppConstants.RealmDatabase.EnKey, key).Wait();
+            return bytes;
+        }
+        else
+        {
+            var bytes = EncryptionHelper.ConvertBase64StringToByteArray(key);
+            return bytes;
+        }
     }
 
     public async Task<bool> AddGuest(PayingGuest guest)
@@ -61,5 +107,4 @@ public class DataService : IDataService
             throw;
         }
     }
-
 }

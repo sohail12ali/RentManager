@@ -2,13 +2,12 @@
 
 namespace RentManager.DataAccess.Entities;
 
-public class ElectricityBillEntity : RealmObject
+public partial class ElectricityBillEntity : RealmObject
 {
     [PrimaryKey]
     public int BillId { get; set; }
 
     public int GuestId { get; set; }
-    public float BillAmount { get; set; }
     public int BillForMonth { get; set; }
     public DateTimeOffset BillStartDate { get; set; }
     public DateTimeOffset BillEndDate { get; set; }
@@ -16,5 +15,5 @@ public class ElectricityBillEntity : RealmObject
     public float PricePerUnit { get; set; }
     public int LastUnit { get; set; }
     public int CurrentUnit { get; set; }
-    public int TotalPayableUnits { get; set; }
+    public int TotalPayableAmount { get; set; }
 }

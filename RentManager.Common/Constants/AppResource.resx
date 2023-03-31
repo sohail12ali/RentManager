@@ -133,6 +133,22 @@
     <value>Rent</value>
     <comment>Flyout Menu Section Title</comment>
   </data>
+  <data name="LTSelectGuest" xml:space="preserve">
+    <value>Select guest account</value>
+    <comment>Label Text for select Guest account picker</comment>
+  </data>
+  <data name="LTSelectMonth" xml:space="preserve">
+    <value>Select Bill for the month</value>
+    <comment>Label Text for select Month picker</comment>
+  </data>
+  <data name="LTSelectStartMonth" xml:space="preserve">
+    <value>Select Bill Cycle Start Date</value>
+    <comment>Label Text from Bill Cycle Start Date</comment>
+  </data>
+  <data name="LTSelectStopMonth" xml:space="preserve">
+    <value>Select Bill Cycle End Date</value>
+    <comment>Label Text from Bill Cycle End Date</comment>
+  </data>
   <data name="PHGuestAddress" xml:space="preserve">
     <value>Enter Address</value>
     <comment>Guest Address Place Holder</comment>
@@ -176,5 +192,9 @@
   <data name="TMGuestSavedPassed" xml:space="preserve">
     <value>Guest saved successfully.</value>
     <comment>Success Toast Message of Guest save</comment>
+  </data>
+  <data name="TMNoGuestFound" xml:space="preserve">
+    <value>No Guest record found, please Add Guest records.</value>
+    <comment>Toast Message of No Guest found.</comment>
   </data>
 </root>

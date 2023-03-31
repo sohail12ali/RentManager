@@ -97,6 +97,42 @@ namespace RentManager.Common.Constants {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select guest account.
+        /// </summary>
+        public static string LTSelectGuest {
+            get {
+                return ResourceManager.GetString("LTSelectGuest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Bill for the month.
+        /// </summary>
+        public static string LTSelectMonth {
+            get {
+                return ResourceManager.GetString("LTSelectMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Bill Cycle Start Date.
+        /// </summary>
+        public static string LTSelectStartMonth {
+            get {
+                return ResourceManager.GetString("LTSelectStartMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Bill Cycle End Date.
+        /// </summary>
+        public static string LTSelectStopMonth {
+            get {
+                return ResourceManager.GetString("LTSelectStopMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter Address.
         /// </summary>
         public static string PHGuestAddress {
@@ -192,6 +228,15 @@ namespace RentManager.Common.Constants {
         public static string TMGuestSavedPassed {
             get {
                 return ResourceManager.GetString("TMGuestSavedPassed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Guest record found, please Add Guest records..
+        /// </summary>
+        public static string TMNoGuestFound {
+            get {
+                return ResourceManager.GetString("TMNoGuestFound", resourceCulture);
             }
         }
     }

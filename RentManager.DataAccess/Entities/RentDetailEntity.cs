@@ -2,7 +2,7 @@
 
 namespace RentManager.DataAccess.Entities;
 
-public class RentDetailEntity : RealmObject
+public partial class RentDetailEntity : RealmObject
 {
     [PrimaryKey]
     public int RentId { get; set; }
