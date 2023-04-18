@@ -2,6 +2,8 @@
 
 public partial class AppShellViewModel : BaseViewModel
 {
+    #region Fields & Properties
+
     [ObservableProperty]
     private string guestSectionTitle;
 
@@ -11,10 +13,17 @@ public partial class AppShellViewModel : BaseViewModel
     [ObservableProperty]
     private string rentSectionTitle;
 
+    #endregion Fields & Properties
+
+    #region Constructor
+
     public AppShellViewModel()
     {
         GuestSectionTitle = AppResource.FTGuestSection;
         ElectricBillSectionTitle = AppResource.FTElectricBillSection;
         RentSectionTitle = AppResource.FTRentSection;
     }
+
+    #endregion Constructor
+
 }

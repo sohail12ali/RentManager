@@ -32,6 +32,11 @@
     <FlyoutItem Title="{Binding ElectricBillSectionTitle}" Icon="home.svg}">
         <Tab Title="{Binding ElectricBillSectionTitle}" Icon="home.svg}">
             <ShellContent
+                Title="View Electric Bill"
+                ContentTemplate="{DataTemplate views:ViewBillsPage}"
+                Icon="view.svg"
+                Route="ViewElectricBill" />
+            <ShellContent
                 Title="Add Electric Bill"
                 ContentTemplate="{DataTemplate views:AddBillPage}"
                 Icon="add.svg"

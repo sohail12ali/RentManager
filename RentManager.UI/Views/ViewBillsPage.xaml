@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RentManager.UI.Views.ViewBillsPage"
+             xmlns:model="clr-namespace:RentManager.Common.Models;assembly=RentManager.Common"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:vm="clr-namespace:RentManager.UI.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding AppearingCommand}" EventName="Appearing" />
+        <toolkit:EventToCommandBehavior Command="{Binding DisappearingCommand}" EventName="Disappearing" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="None" />
+            </Style>
+
+            <Style x:Key="FrameStyle" TargetType="Frame">
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="Margin" Value="5" />
+            </Style>
+
+            <toolkit:DateTimeOffsetConverter x:Key="DateTimeOffsetConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Frame IsVisible="{Binding IsBusy}" Style="{DynamicResource ActivityIndicatorFrameStyle}">
+                <ActivityIndicator
+                    IsRunning="{Binding IsBusy}"
+                    IsVisible="{Binding IsBusy}"
+                    Style="{DynamicResource Key=ActivityIndicatorStyle}" />
+            </Frame>
+
+            <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
+                <CollectionView ItemsSource="{Binding ElectricityBills}"  >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame>
+                                <Grid
+                                    Padding="10"
+                                    ColumnSpacing="5"
+                                    RowSpacing="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Style="{DynamicResource LabelStyle}"
+                                        Text="Guest Name" />
+
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        Style="{DynamicResource LabelStyle}"
+                                        Text="{Binding Guest.GuestName}" />
+
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Style="{DynamicResource LabelStyle}"
+                                        Text="Billing Month" />
+
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        Style="{DynamicResource LabelStyle}"
+                                        Text="{Binding BillMonth}" />
+
+                                    <Label
+                                        Grid.Row="2"
+                                        Grid.Column="0"
+                                        Style="{DynamicResource LabelStyle}"
+                                        Text="Billing Start Cycle" />
+
+                                    <Label
+                                        Grid.Row="2"
+                                        Grid.Column="1"
+                                        Style="{DynamicResource LabelStyle}"
+                                        Text="{Binding BillStartDate, Converter={StaticResource DateTimeOffsetConverter}}" />
+
+                                    <Label
+                                        Grid.Row="3"
+                                        Grid.Column="0"
+                                        Style="{DynamicResource LabelStyle}"
+                                        Text="Billing End Cycle" />
+
+                                    <Label
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        Style="{DynamicResource LabelStyle}"
+                                        Text="{Binding BillEndDate, Converter={StaticResource DateTimeOffsetConverter}}" />
+
+                                    <Label
+                                        Grid.Row="4"
+                                        Grid.Column="0"
+                                        Style="{DynamicResource LabelStyle}"
+                                        Text="Previous Meter Unit" />
+
+                                    <Label
+                                        Grid.Row="4"
+                                        Grid.Column="1"
+                                        Style="{DynamicResource LabelStyle}"
+                                        Text="{Binding LastUnit}" />
+
+                                    <Label
+                                        Grid.Row="5"
+                                        Grid.Column="0"
+                                        Style="{DynamicResource LabelStyle}"
+                                        Text="Current Meter Unit" />
+
+                                    <Label
+                                        Grid.Row="5"
+                                        Grid.Column="1"
+                                        Style="{DynamicResource LabelStyle}"
+                                        Text="{Binding CurrentUnit}" />
+                                    
+                                    <Label
+                                        Grid.Row="6"
+                                        Grid.Column="0"
+                                        Style="{DynamicResource LabelStyle}"
+                                        Text="Payable Meter Unit" />
+
+                                    <Label
+                                        Grid.Row="6"
+                                        Grid.Column="1"
+                                        Style="{DynamicResource LabelStyle}"
+                                        Text="{Binding BilledUnits}" />
+
+                                    <Label
+                                        Grid.Row="7"
+                                        Grid.Column="0"
+                                        Style="{DynamicResource LabelStyle}"
+                                        Text="Price Per Unit" />
+
+                                    <Label
+                                        Grid.Row="7"
+                                        Grid.Column="1"
+                                        Style="{DynamicResource LabelStyle}"
+                                        Text="{Binding PricePerUnit}" />
+
+
+                                    <Label
+                                        Grid.Row="8"
+                                        Grid.Column="0"
+                                        Style="{DynamicResource LabelStyle}"
+                                        Text="Total payable amount" />
+
+                                    <Label
+                                        Grid.Row="8"
+                                        Grid.Column="1"
+                                        Style="{DynamicResource LabelStyle}"
+                                        Text="{Binding TotalPayableAmount}" />
+
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

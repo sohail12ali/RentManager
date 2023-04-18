@@ -18,9 +18,6 @@
             <Style x:Key="SubmitButtonStyle" TargetType="Button">
                 <Setter Property="Margin" Value="10" />
             </Style>
-            <Style x:Key="EntryStyle" TargetType="Entry">
-                <Setter Property="Margin" Value="10,5" />
-            </Style>
 
             <Style x:Key="LabelStyle" TargetType="Label">
                 <Setter Property="Margin" Value="10,5" />
@@ -69,6 +66,68 @@
 
                     <Label Style="{DynamicResource LabelStyle}" Text="{x:Static resx:AppResource.LTSelectStopMonth}" />
                     <DatePicker Date="{Binding BillEndDate.Date, Mode=TwoWay}" Style="{DynamicResource DatePickerStyle}" />
+
+                    <Label Style="{DynamicResource LabelStyle}" Text="{x:Static resx:AppResource.LTLastBilled}" />
+                    <Entry
+                        Placeholder="{x:Static resx:AppResource.PHLastBilled}"
+                        Style="{DynamicResource EntryStyle}"
+                        Text="{Binding LastUnit}">
+                        <Entry.Behaviors>
+                            <toolkit:NumericValidationBehavior
+                                ValidStyle="{StaticResource EntryStyle}"
+                                InvalidStyle="{StaticResource InvalidEntryStyle}"
+                                Flags="ValidateOnValueChanged"
+                                MinimumValue="1.0"
+                                MaximumDecimalPlaces="2" />
+                        </Entry.Behaviors>
+                    </Entry>
+
+                    <Label Style="{DynamicResource LabelStyle}" Text="{x:Static resx:AppResource.LTCurrentUnits}" />
+                    <Entry
+                        Placeholder="{x:Static resx:AppResource.PHCurrentUnits}"
+                        Style="{DynamicResource EntryStyle}"
+                        Text="{Binding CurrentUnit}">
+                        <Entry.Behaviors>
+                            <toolkit:NumericValidationBehavior
+                                ValidStyle="{StaticResource EntryStyle}"
+                                InvalidStyle="{StaticResource InvalidEntryStyle}"
+                                Flags="ValidateOnValueChanged"
+                                MinimumValue="1.0"
+                                MaximumDecimalPlaces="2" />
+                        </Entry.Behaviors>
+                    </Entry>
+
+                    <Label Style="{DynamicResource LabelStyle}" Text="{x:Static resx:AppResource.LTPricePerUnit}" />
+                    <Entry
+                        Keyboard="Numeric"
+                        Placeholder="{x:Static resx:AppResource.PHPricePerUnits}"
+                        Style="{DynamicResource EntryStyle}"
+                        Text="{Binding PricePerUnit}">
+                        <Entry.Behaviors>
+                            <toolkit:NumericValidationBehavior
+                                ValidStyle="{StaticResource EntryStyle}"
+                                InvalidStyle="{StaticResource InvalidEntryStyle}"
+                                Flags="ValidateOnValueChanged"
+                                MinimumValue="1.0"
+                                MaximumDecimalPlaces="2" />
+                        </Entry.Behaviors>
+                    </Entry>
+
+                    <Label Style="{DynamicResource LabelStyle}" Text="{x:Static resx:AppResource.LTBilledUnits}" />
+                    <Entry
+                        IsReadOnly="True"
+                        Keyboard="Numeric"
+                        Placeholder="{x:Static resx:AppResource.PHBilledUnits}"
+                        Style="{DynamicResource EntryStyle}"
+                        Text="{Binding TotalPayableUnits}" />
+
+                    <Label Style="{DynamicResource LabelStyle}" Text="{x:Static resx:AppResource.LTBilledAmount}" />
+                    <Entry
+                        IsReadOnly="True"
+                        Keyboard="Numeric"
+                        Placeholder="{x:Static resx:AppResource.PHBilledAmount}"
+                        Style="{DynamicResource EntryStyle}"
+                        Text="{Binding TotalPayableAmount}" />
                 </VerticalStackLayout>
             </Frame>
             <Button

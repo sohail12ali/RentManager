@@ -53,4 +53,9 @@ public static class EnumHelper
         }
         return strings;
     }
+
+    public static T ParseEnum<T>(this string value) where T : Enum
+    {
+        return (T)Enum.Parse(typeof(T), value, true);
+    }
 }

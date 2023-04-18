@@ -97,6 +97,105 @@ namespace RentManager.Common.Constants {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Total Billed Amount.
+        /// </summary>
+        public static string LTBilledAmount {
+            get {
+                return ResourceManager.GetString("LTBilledAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Billed Units.
+        /// </summary>
+        public static string LTBilledUnits {
+            get {
+                return ResourceManager.GetString("LTBilledUnits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current Meter Unit.
+        /// </summary>
+        public static string LTCurrentUnits {
+            get {
+                return ResourceManager.GetString("LTCurrentUnits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guest Address.
+        /// </summary>
+        public static string LTGuestAddress {
+            get {
+                return ResourceManager.GetString("LTGuestAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Document ID.
+        /// </summary>
+        public static string LTGuestDocId {
+            get {
+                return ResourceManager.GetString("LTGuestDocId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Document Type.
+        /// </summary>
+        public static string LTGuestDocType {
+            get {
+                return ResourceManager.GetString("LTGuestDocType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guest Email.
+        /// </summary>
+        public static string LTGuestEmail {
+            get {
+                return ResourceManager.GetString("LTGuestEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guest Name.
+        /// </summary>
+        public static string LTGuestName {
+            get {
+                return ResourceManager.GetString("LTGuestName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guest Phone.
+        /// </summary>
+        public static string LTGuestPhone {
+            get {
+                return ResourceManager.GetString("LTGuestPhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Meter Billed Units.
+        /// </summary>
+        public static string LTLastBilled {
+            get {
+                return ResourceManager.GetString("LTLastBilled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price Per Unit.
+        /// </summary>
+        public static string LTPricePerUnit {
+            get {
+                return ResourceManager.GetString("LTPricePerUnit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select guest account.
         /// </summary>
         public static string LTSelectGuest {
@@ -129,6 +228,33 @@ namespace RentManager.Common.Constants {
         public static string LTSelectStopMonth {
             get {
                 return ResourceManager.GetString("LTSelectStopMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Billed Amount.
+        /// </summary>
+        public static string PHBilledAmount {
+            get {
+                return ResourceManager.GetString("PHBilledAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Billed Units.
+        /// </summary>
+        public static string PHBilledUnits {
+            get {
+                return ResourceManager.GetString("PHBilledUnits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter Current Meter Units.
+        /// </summary>
+        public static string PHCurrentUnits {
+            get {
+                return ResourceManager.GetString("PHCurrentUnits", resourceCulture);
             }
         }
         
@@ -187,6 +313,24 @@ namespace RentManager.Common.Constants {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter Last Meter Billed Units.
+        /// </summary>
+        public static string PHLastBilled {
+            get {
+                return ResourceManager.GetString("PHLastBilled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter Price Per Units.
+        /// </summary>
+        public static string PHPricePerUnits {
+            get {
+                return ResourceManager.GetString("PHPricePerUnits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Bill.
         /// </summary>
         public static string PTAddBill {
@@ -201,6 +345,15 @@ namespace RentManager.Common.Constants {
         public static string PTAddGuest {
             get {
                 return ResourceManager.GetString("PTAddGuest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Electricity Bill.
+        /// </summary>
+        public static string PTViewElectricBill {
+            get {
+                return ResourceManager.GetString("PTViewElectricBill", resourceCulture);
             }
         }
         

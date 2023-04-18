@@ -20,11 +20,15 @@ public partial class BaseViewModel : ObservableObject
 
     #endregion Fields & Properties
 
-    #region Tasks & Methods
+    #region Constructor
 
     public BaseViewModel()
     {
     }
+
+    #endregion Constructor
+
+    #region Tasks & Methods
 
     [RelayCommand]
     public virtual void Appearing()
@@ -57,6 +61,18 @@ public partial class BaseViewModel : ObservableObject
         Debug.WriteLine($"Toast Message Posted: {text}");
         var toast = Toast.Make(text, duration, fontSize);
         await toast.Show(cancellationTokenSource?.Token ?? default);
+    }
+
+    protected Task ShowToastOnMainThread(string text, ToastDuration duration = ToastDuration.Short, double fontSize = 14, CancellationTokenSource? cancellationTokenSource = null)
+    {
+        Debug.WriteLine($"Toast Message Posted: {text}");
+        var toast = Toast.Make(text, duration, fontSize);
+        MainThread.BeginInvokeOnMainThread(async () =>
+        {
+            await toast.Show(cancellationTokenSource?.Token ?? default);
+        });
+
+        return Task.CompletedTask;
     }
 
     #endregion Tasks & Methods

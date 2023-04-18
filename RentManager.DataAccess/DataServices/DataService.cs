@@ -107,4 +107,43 @@ public class DataService : IDataService
             throw;
         }
     }
+
+    public async Task<bool> AddElectricityBill(ElectricityBill bill)
+    {
+        try
+        {
+            Guard.IsNotNull(bill);
+            var entities = mapper.Map<ElectricityBillEntity>(bill);
+            Guard.IsNotNull(entities);
+
+            int max = realm.All<ElectricityBillEntity>()?.OrderByDescending(x => x.BillId)?.FirstOrDefault()?.BillId ?? 0;
+            entities.BillId = max + 1;
+            await realm.WriteAsync(() =>
+            {
+                realm.Add(entities);
+            });
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex);
+            return false;
+        }
+    }
+
+    public Task<IEnumerable<ElectricityBill>> GetAllElectricityBills()
+    {
+        try
+        {
+            var payingGuestEntities = realm.All<ElectricityBillEntity>();
+            IEnumerable<ElectricityBill> guests = mapper.Map<IEnumerable<ElectricityBill>>(payingGuestEntities).OrderByDescending(x => x.GuestId);
+            return Task.FromResult(guests);
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex);
+            throw;
+        }
+    }
 }

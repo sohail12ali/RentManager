@@ -42,6 +42,7 @@ internal static class ServiceExtension
         _ = builder.Services.AddTransient<AddGuestPage>();
         _ = builder.Services.AddTransient<ViewGuestPage>();
         _ = builder.Services.AddTransient<AddBillPage>();
+        _ = builder.Services.AddTransient<ViewBillsPage>();
         return builder;
     }
 
@@ -52,6 +53,7 @@ internal static class ServiceExtension
         _ = builder.Services.AddTransient<AddGuestViewModel>();
         _ = builder.Services.AddTransient<ViewGuestViewModel>();
         _ = builder.Services.AddTransient<AddBillViewModel>();
+        _ = builder.Services.AddSingleton<ViewBillsViewModel>();
         return builder;
     }
 

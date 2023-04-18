@@ -1,16 +1,15 @@
 ﻿using RentManager.DataAccess.DataServices;
-
 using System.Collections.ObjectModel;
 
 namespace RentManager.UI.ViewModels;
 
-public partial class ViewGuestViewModel : BaseViewModel
+public partial class ViewBillsViewModel : BaseViewModel
 {
     #region Field & Properties
     private readonly IDataService dataService;
 
     [ObservableProperty]
-    private ObservableCollection<PayingGuest> payingGuests = new();
+    private ObservableCollection<EBill> electricityBills = new();
 
     [ObservableProperty]
     private bool isRefreshing;
@@ -19,10 +18,10 @@ public partial class ViewGuestViewModel : BaseViewModel
 
     #region Constructor
 
-    public ViewGuestViewModel(IDataService dataService)
+    public ViewBillsViewModel(IDataService dataService)
     {
         Debug.WriteLine($"Init Class: {GetType().Name}, Method: {System.Reflection.MethodBase.GetCurrentMethod().Name}");
-        Title = AppResource.PTViewGuest;
+        Title = AppResource.PTViewElectricBill;
         this.dataService = dataService;
     }
 
@@ -38,14 +37,37 @@ public partial class ViewGuestViewModel : BaseViewModel
     [RelayCommand]
     private async Task Refresh()
     {
-        PayingGuests.Clear();
-        var guests = await GetPayingGuests();
-        if (guests is not null && guests.Any())
+        ElectricityBills.Clear();
+        var billsTask = GetElectricityBills();
+        var guestsTask = GetPayingGuests();
+
+        Task[] tasks = new Task[] { billsTask, guestsTask };
+
+        await Task.WhenAll(tasks);
+
+        var bills = billsTask.Result;
+        var guests = guestsTask.Result;
+
+        if (bills is not null && bills.Any())
         {
-            foreach (var guest in guests)
+            foreach (var bill in bills)
             {
-                PayingGuests.Add(guest);
+                ElectricityBills.Add(new EBill(bill, guests));
             }
+        }
+    }
+
+    private async Task<IEnumerable<ElectricityBill>> GetElectricityBills()
+    {
+        try
+        {
+            var bills = await dataService.GetAllElectricityBills();
+            return bills;
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex);
+            return Enumerable.Empty<ElectricityBill>();
         }
     }
 

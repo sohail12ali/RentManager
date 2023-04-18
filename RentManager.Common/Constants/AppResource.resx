@@ -133,6 +133,50 @@
     <value>Rent</value>
     <comment>Flyout Menu Section Title</comment>
   </data>
+  <data name="LTBilledAmount" xml:space="preserve">
+    <value>Total Billed Amount</value>
+    <comment>Label Text Total Billed Amount Units</comment>
+  </data>
+  <data name="LTBilledUnits" xml:space="preserve">
+    <value>Total Billed Units</value>
+    <comment>Label Text Total Billed Units</comment>
+  </data>
+  <data name="LTCurrentUnits" xml:space="preserve">
+    <value>Current Meter Unit</value>
+    <comment>Label Text Current Meter Unit</comment>
+  </data>
+  <data name="LTGuestAddress" xml:space="preserve">
+    <value>Guest Address</value>
+    <comment>Label Text Guest Address</comment>
+  </data>
+  <data name="LTGuestDocId" xml:space="preserve">
+    <value>Document ID</value>
+    <comment>Label Text Document ID</comment>
+  </data>
+  <data name="LTGuestDocType" xml:space="preserve">
+    <value>Document Type</value>
+    <comment>Label Text Document Type</comment>
+  </data>
+  <data name="LTGuestEmail" xml:space="preserve">
+    <value>Guest Email</value>
+    <comment>Label Text Guest Email</comment>
+  </data>
+  <data name="LTGuestName" xml:space="preserve">
+    <value>Guest Name</value>
+    <comment>Label Text Guest Name</comment>
+  </data>
+  <data name="LTGuestPhone" xml:space="preserve">
+    <value>Guest Phone</value>
+    <comment>Label Text Guest Phone</comment>
+  </data>
+  <data name="LTLastBilled" xml:space="preserve">
+    <value>Last Meter Billed Units</value>
+    <comment>Label Text Billed Unit</comment>
+  </data>
+  <data name="LTPricePerUnit" xml:space="preserve">
+    <value>Price Per Unit</value>
+    <comment>Label Text Price Per Unit</comment>
+  </data>
   <data name="LTSelectGuest" xml:space="preserve">
     <value>Select guest account</value>
     <comment>Label Text for select Guest account picker</comment>
@@ -148,6 +192,18 @@
   <data name="LTSelectStopMonth" xml:space="preserve">
     <value>Select Bill Cycle End Date</value>
     <comment>Label Text from Bill Cycle End Date</comment>
+  </data>
+  <data name="PHBilledAmount" xml:space="preserve">
+    <value>Total Billed Amount</value>
+    <comment>Billed Amount Place Holder</comment>
+  </data>
+  <data name="PHBilledUnits" xml:space="preserve">
+    <value>Total Billed Units</value>
+    <comment>Billed Units Place Holder</comment>
+  </data>
+  <data name="PHCurrentUnits" xml:space="preserve">
+    <value>Enter Current Meter Units</value>
+    <comment>Current Meter Units Place Holder</comment>
   </data>
   <data name="PHGuestAddress" xml:space="preserve">
     <value>Enter Address</value>
@@ -173,6 +229,14 @@
     <value>Enter Phone</value>
     <comment>Guest Phone Number Place Holder</comment>
   </data>
+  <data name="PHLastBilled" xml:space="preserve">
+    <value>Enter Last Meter Billed Units</value>
+    <comment>Last Meter Billed Units Place Holder</comment>
+  </data>
+  <data name="PHPricePerUnits" xml:space="preserve">
+    <value>Enter Price Per Units</value>
+    <comment>Price Per Units Place Holder</comment>
+  </data>
   <data name="PTAddBill" xml:space="preserve">
     <value>Add Bill</value>
     <comment>Add Bill Page Title</comment>
@@ -180,6 +244,10 @@
   <data name="PTAddGuest" xml:space="preserve">
     <value>Add Guest</value>
     <comment>Add Guest Page Title</comment>
+  </data>
+  <data name="PTViewElectricBill" xml:space="preserve">
+    <value>View Electricity Bill</value>
+    <comment>View Electricity Bill Page Title</comment>
   </data>
   <data name="PTViewGuest" xml:space="preserve">
     <value>View Guests</value>

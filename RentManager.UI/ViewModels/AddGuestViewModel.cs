@@ -1,5 +1,4 @@
-﻿using RentManager.Common.Models;
-using RentManager.DataAccess.DataServices;
+﻿using RentManager.DataAccess.DataServices;
 
 namespace RentManager.UI.ViewModels;
 
